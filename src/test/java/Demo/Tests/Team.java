@@ -15,7 +15,7 @@ public class Team extends BaseTest {
 
 	
 	//Validate that team has only 4 Foreign players
-	@Test
+	@Test(priority = 1)
 	public void foreignPlayersCount() throws IOException, ParseException {
 
 		//parcing the json
@@ -36,13 +36,13 @@ public class Team extends BaseTest {
 		}
 		
 		System.out.println("Foreign Players Count :"+count);
-
+//Validation
 		Assert.assertTrue(count <= 4);
 
 	}
 
 	//Validate that there is at least one wicket keeper 
-	@Test
+	@Test(priority = 2)
 	public void WicketKeeperCount() throws IOException, ParseException {
 
 		JSONArray getdata = parseJson(Constant.getFilepath());
@@ -62,6 +62,8 @@ public class Team extends BaseTest {
 		}
 		System.out.println("Wicket-keeper Count :"+count);
 
+		//Validation
+		
 		Assert.assertTrue(count >= 1);
 
 	}
